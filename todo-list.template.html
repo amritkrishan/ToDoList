@@ -1,0 +1,37 @@
+<div ng-if="group" ng-controller='todoListsCtrl'>
+	<div class='navbar-inner col-md-4' id="intr2">
+		<div>
+			<div class="menuLabel">Lists&nbsp;<span class="glyphicon glyphicon-plus" ng-click="showForm2 = !showForm2"></span></div>
+			<form ng-show="showForm2 && isNotEmpty(group)" ng-submit="addList()">
+				<input type="text" ng-model="newListName">
+				<input type="submit" value="Add list"></input>
+				<br></br>
+			</form>	
+			<div id="snack">{{snackbar}}</div>
+			<div ng-repeat="list in group.lists" data-ng-class="{'active-selection': list.name == activeClass}">
+				<span data-ng-click="setSelected(list)">{{list.name}}</span>
+			</div>
+		</div>
+	</div>
+	<div class='navbar-inner col-md-5' id="intr3">
+		<div>
+			<div class="menuLabel">Tasks&nbsp;<span class="glyphicon glyphicon-plus" ng-click="showForm3 = !showForm3"></span></div>
+			<div ng-class="{ active: isSelected(list) }">
+				<h2><span ng-style="{'background-color': colorOptions.color}">{{selectedList.name}}
+				</span>
+				</h2>
+				<form ng-show="showForm3 && isNotEmpty(selectedList)" ng-submit="addTask()">
+					<input type="text" ng-model="selectedList.newTaskName">
+					<input type="submit" value="Add task"></input>
+				</form>
+				<div id="snackTasks">{{snackbarTasks}}</div>
+				<div>
+	                <task-list tasks="pendingList" title="'Pending Tasks'">
+			        </task-list>  
+			        <task-list tasks="completedList" title="'Completed Tasks'">
+			        </task-list> 
+			    </div>    
+		    </div>
+	    </div>
+	</div>
+</div>

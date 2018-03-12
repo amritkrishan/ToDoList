@@ -1,0 +1,62 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+.active-selection {
+  background-color: #FFFF00;
+}
+.navbar {
+        	border : 1px solid #ffffff;
+        	background-color: #73bb1e;
+        	height: 100%;
+    	}
+    	#intr1, #intr2 { 
+        	border-right: 1px solid #ffffff;
+    	}
+
+input {
+    background: #ffffff;
+    -webkit-transition: width 2s; 
+    transition: width 2s;
+}
+input:hover {
+    background: #FFFF00;
+}
+#snackbar, #snack, #snackTasks {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show, #snack.show, #snackTasks.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

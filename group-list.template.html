@@ -1,0 +1,25 @@
+<div class="navbar" ng-controller='groupsCtrl'>
+	<div class="navbar-inner col-md-3" id="intr1">
+		<div>
+			<div class="menuLabel">Groups&nbsp;<span class="glyphicon glyphicon-plus" ng-click="showForm1 = !showForm1"></span></div>
+			<form ng-show="showForm1" name="groupForm" ng-submit="addGroup()">
+				<input type="text" ng-model="newGroupName">
+				<br></br>
+				<input type="submit" value="Add Group"></input>
+			</form>
+			<div id="snackbar">{{snackbarDisplay}}</div>
+			<h3 ng-show="allGroups.length>0">Groups : </h3>
+			<div ng-model="x" ng-repeat="x in allGroups"  data-ng-class="{'active-selection': x.group == activeClass}">
+				<div data-ng-click="setSelectedGroup(x)">{{x.group}}&nbsp;
+					<span class="glyphicon glyphicon-menu-right"</span>
+				</div>
+			</div>
+			<!-- <br></br>
+			<h3 ng-show="allGroups.length>0">Groups dropdown : </h3>
+			<div ng-show='allGroups.length>0'>
+				<select ng-model="groupName" ng-options="x.group for x in allGroups" ng-click="setSelectedGroup(groupName)"></select>
+			</div> -->
+		</div>
+	</div>
+	<todo-list group="selectedGroup" allgroup="allGroups"></todo-list>
+</div>

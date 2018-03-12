@@ -1,0 +1,7 @@
+<div ng-if="tasks.length>0">
+<h3>{{title}}</h3> 
+<div ng-repeat='task in tasks track by $index'>
+	<input type='checkbox' ng-model='task.done'>
+	<span ng-bind='task.name'></span>
+</div>
+</div>
